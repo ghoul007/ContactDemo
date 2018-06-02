@@ -1,0 +1,33 @@
+<h4>
+    contact Info</h4>
+<div class="text-right">
+    <input type='text' [(ngModel)]="search" style='padding:8px;margin:15px auto;width:30%;' placeholder='Search...' (keyup)='searchTable($event)'
+    />
+</div>
+<ngx-datatable class="bootstrap" [rows]="contacts" [loadingIndicator]="loadingIndicator" [columnMode]="'force'" [headerHeight]="40"
+    [summaryRow]="true" [summaryPosition]="'bottom'" [footerHeight]="40" [limit]="10" [rowHeight]="'auto'" [reorderable]="reorderable">
+    <ngx-datatable-column name="LIEFERANT" prop="EMAIL">
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <div (click)="showDetails(row)" class="block">
+                <div class="title"> {{row.VORNAME}} {{row.NACHNAME}} </div>
+                <div class="subTitle"> {{row.LIEFERANT || "-"}}</div>
+            </div>
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="EMAIL" prop="EMAIL">
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Article" prop="EMAIL">
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <select [(ngModel)]="row.ARTICLE" class="form-control">
+                <option selected value="">Select Article</option>
+                <option *ngFor="let article of articles">{{article.ARTIKEL}}</option>
+            </select>
+        </ng-template>
+    </ngx-datatable-column>
+</ngx-datatable>
+<div class="text-right">
+    <button (click)="save(contacts)" class="btn btn-default m10">Save</button>
+</div>

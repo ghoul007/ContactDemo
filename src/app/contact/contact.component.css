@@ -1,0 +1,9 @@
+.layout{
+    display: inline-flex;
+    width: 90vw;
+}
+.widget{
+    border: 1px solid #dddddd;
+    padding: 30px;
+    margin: 5px;
+}
