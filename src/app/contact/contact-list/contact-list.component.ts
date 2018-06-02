@@ -34,6 +34,9 @@ export class ContactListComponent implements OnInit {
     this.event.emit(row)
   }
 
+  /**
+   * Filtering 
+   */
   searchTable(search) {
     let key = search.target.value;
     if (key) {
