@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./contact-details.component.css']
 })
 export class ContactDetailsComponent implements OnInit {
+  title ="ahmed"
 @Input() contact;
   constructor() { }
 
